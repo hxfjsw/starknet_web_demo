@@ -1,0 +1,1317 @@
+type Query {
+  nftContract(input: NFTContractInput!): NFTContract!
+  nft(input: NFTInput!): NFT!
+  nfts(
+    input: NFTsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): NFTConnection!
+  nftEvents(
+    input: NFTEventsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): NFTEventConnection!
+  blockByHash(input: BlockByHashInput!): Block!
+  blockByNumber(input: BlockByNumberInput!): Block!
+  blocks(
+    input: BlocksInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): BlockConnection!
+  event(input: EventInput!): Event!
+  events(
+    input: EventsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): EventConnection!
+  starknetClass(input: StarknetClassInput!): StarknetClass!
+  starknetClasses(
+    input: StarknetClassesInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): StarknetClassConnection!
+  transaction(input: TransactionInput!): Transaction!
+  transactions(
+    input: TransactionsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): TransactionConnection!
+  message(input: MessageInput!): Message!
+  search(input: SearchInput!): SearchResult!
+  contract(input: ContractInput!): Contract!
+  contracts(
+    input: ContractsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): ContractConnection!
+  contractProxyStarknetClass(input: ContractProxyStarknetClassInput!): ContractProxyStarknetClassOutput!
+  starknetOverviewStats: StarknetOverviewStats!
+  latestBlockStats: LatestBlockStats!
+  latestSequencerStats: LatestSequencerStats!
+  estimateTransactionTime: EstimateTransactionTime!
+  estimateBlockTime(input: EstimateBlockTimeInput!): EstimateBlockTime!
+  transactionsPerSecond: TransactionsPerSecondStats!
+  mainCallsPerSecond: MainCallsPerSecondStats!
+  executionResourcesNStepsPerSecond: ExecutionResourcesNStepsPerSecondStats!
+  activeAccounts: ActiveAccountsStats!
+  tokenTransfers: TokenTransferStats!
+  tvl: TVLStats!
+  contractImplementationTypeCounts: ContractImplementationTypeCountsStats!
+  transactionTypeCounts: TransactionTypeCountsStats!
+  accountRegenesis: AccountRegenesisStats!
+  contractRegenesis: ContractRegenesisStats!
+  accountCallSelectorCounts: AccountCallSelectorCountsStats!
+  eventKeyCounts: EventKeyCountsStats!
+  call(input: CallInput!): Call!
+  calls(
+    input: CallsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): CallConnection!
+  messageLog(input: MessageLogInput!): MessageLog!
+  messageLogs(
+    input: MessageLogsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): MessageLogConnection!
+  messageLogERC20Transfers(input: MessageLogERC20TransfersInput!): [MessageLogERC20Transfer!]!
+  erc20BalancesByOwnerAddress(input: ERC20BalancesByOwnerAddressInput!): [ERC20Balance!]!
+  erc20Balances(
+    input: ERC20BalancesInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): ERC20BalanceConnection!
+  erc20Summaries: [ERC20Summary!]!
+  erc20Contract(input: ERC20ContractInput!): ERC20Contract!
+  erc20TransferEvents(
+    input: ERC20TransferEventsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): ERC20TransferEventConnection!
+  replacedClasses(
+    input: ReplacedClassesInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): ReplacedClassConnection!
+  kakarotTransaction(input: KakarotTransactionInput!): KakarotTransaction!
+  kakarotTransactions(
+    input: KakarotTransactionsInput!
+
+    """Paginate before opaque cursor"""
+    before: String
+
+    """Paginate after opaque cursor"""
+    after: String
+
+    """Paginate first"""
+    first: Float
+
+    """Paginate last"""
+    last: Float
+  ): KakarotTransactionConnection!
+}
+
+type NFTContract {
+  contract_address: AddressHexString!
+  schema: ContractImplementationType!
+  name: String
+  description: String
+  symbol: String
+  external_url: String
+  twitter_url: String
+  discord_url: String
+  image_url: String
+  image_small_url: String
+  banner_url: String
+  is_social_verified: Boolean!
+  contract: Contract
+}
+
+"""GraphQL Scalar representing a address"""
+scalar AddressHexString
+
+enum ContractImplementationType {
+  UNKNOWN
+  ACCOUNT
+  ERC20
+  ERC721
+  ERC1155
+}
+
+type Contract {
+  contract_address: AddressHexString!
+  class_hash: AddressHexString!
+  deployed_at_transaction_hash: AddressHexString!
+  deployed_at_timestamp: BigIntNumber!
+  deployed_by_contract_address: AddressHexString
+  class_hash_placed_at_transaction_hash: AddressHexString!
+  class_hash_placed_at_timestamp: BigIntNumber!
+  name_tag: String
+  implementation_type: ContractImplementationType!
+  is_social_verified: Boolean!
+  starknet_class: StarknetClass!
+  starknet_id: StarknetID
+  deployed_by_contract: Contract
+  eth_balance: ERC20Balance
+}
+
+"""GraphQL Scalar representing the Number type."""
+scalar BigIntNumber
+
+type StarknetClass {
+  class_hash: AddressHexString!
+  entry_points_by_type: JSONObject!
+  bytecode: [String!]
+  sierra_program: [String!]
+  abi: [JSONObject!]
+  declared_at_transaction_hash: AddressHexString!
+  declared_at_timestamp: BigIntNumber!
+  declared_by_contract_address: AddressHexString
+  compiled_class_hash: AddressHexString
+  number_of_contracts: Int!
+  type: StarknetClassType!
+  verified: StarknetClassVerified
+  declared_by_contract: Contract
+}
+
+"""
+The `JSONObject` scalar type represents JSON objects as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).
+"""
+scalar JSONObject
+
+enum StarknetClassType {
+  UNKNOWN
+  ACCOUNT
+  PROXY
+  ERC20
+  ERC721
+  ERC1155
+}
+
+type StarknetClassVerified {
+  class_hash: AddressHexString!
+  name: String!
+  abi: [JSONObject!]!
+  source_code: JSONObject!
+  verified_at_timestamp: BigIntNumber!
+}
+
+type StarknetID {
+  domain: String
+}
+
+type ERC20Balance {
+  contract_address: AddressHexString!
+  owner_address: AddressHexString!
+  balance: BigIntStringScalar!
+  owner_contract: Contract
+  erc20_metadata: ERC20Metadata
+}
+
+"""GraphQL Scalar representing the BigInt type."""
+scalar BigIntStringScalar
+
+type ERC20Metadata {
+  contract_address: AddressHexString!
+  name: String
+  symbol: String
+  decimals: BigIntStringScalar
+}
+
+input NFTContractInput {
+  contract_address: AddressHexString!
+}
+
+type NFT {
+  id: String!
+  schema: ContractImplementationType!
+  contract_address: AddressHexString!
+  token_id: BigIntStringScalar!
+  name: String
+  description: String
+  external_url: String
+  attributes: [JSONObject!]
+  image_url: String
+  image_small_url: String
+  image_medium_url: String
+  animation_url: String
+  animation_mime_type: String
+  minted_by_address: AddressHexString!
+  minted_at_transaction_hash: AddressHexString!
+  minted_at_timestamp: BigIntNumber!
+  owners: [NFTBalance!]
+  nft_contract: NFTContract!
+}
+
+type NFTBalance {
+  id: String!
+  contract_address: AddressHexString!
+  token_id: BigIntStringScalar!
+  owner_address: AddressHexString!
+  balance: BigIntStringScalar!
+}
+
+input NFTInput {
+  contract_address: AddressHexString!
+  token_id: BigIntStringScalar!
+}
+
+type NFTConnection {
+  pageInfo: PageInfo!
+  edges: [NFTEdge!]!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type NFTEdge {
+  node: NFT!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input NFTsInput {
+  sort_by: NFTSortBy!
+  order_by: OrderBy!
+  contract_address: AddressHexString
+  owner_address: AddressHexString
+}
+
+enum NFTSortBy {
+  token_id
+  minted_at
+}
+
+enum OrderBy {
+  asc
+  desc
+}
+
+type NFTEventConnection {
+  pageInfo: PageInfo!
+  edges: [NFTEventEdge!]!
+}
+
+type NFTEventEdge {
+  node: NFTEvent!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+type NFTEvent {
+  id: String!
+  transaction_hash: AddressHexString!
+  type: NFTEventType!
+  nft_id: String!
+  contract_address: AddressHexString!
+  token_id: BigIntStringScalar!
+  quantity: BigIntStringScalar!
+  from_address: AddressHexString!
+  to_address: AddressHexString!
+  marketplace: NFTMarketplace
+  payment_contract_address: AddressHexString
+  unit_price: BigIntStringScalar
+  total_price: BigIntStringScalar
+  timestamp: BigIntNumber!
+  nft: NFT!
+  from_contract: Contract
+  to_contract: Contract
+  payment_contract_erc20_metadata: ERC20Metadata
+}
+
+enum NFTEventType {
+  MINT
+  TRANSFER
+  BURN
+  SALE
+}
+
+enum NFTMarketplace {
+  ASPECT
+  MINTSQUARE
+}
+
+input NFTEventsInput {
+  sort_by: NFTEventSortBy!
+  order_by: OrderBy!
+  nft_id: String
+  contract_address: AddressHexString
+}
+
+enum NFTEventSortBy {
+  timestamp
+}
+
+type Block {
+  block_hash: AddressHexString
+  parent_block_hash: AddressHexString!
+  block_status: BlockStatus!
+  block_number: Int
+  timestamp: BigIntNumber!
+  state_root: String
+  gas_price: BigIntStringScalar!
+  sequencer_address: HexString
+  number_of_transactions: Int!
+  number_of_events: Int!
+  number_of_message_logs: Int!
+  number_of_calls: Int!
+  l1_transaction_hash: HexString
+  total_execution_resources_n_steps: BigIntStringScalar!
+}
+
+enum BlockStatus {
+  PENDING
+  ABORTED
+  REVERTED
+  ACCEPTED_ON_L2
+  ACCEPTED_ON_L1
+}
+
+"""GraphQL Scalar representing a hex string"""
+scalar HexString
+
+input BlockByHashInput {
+  block_hash: NullableAddressHexString
+}
+
+"""GraphQL Scalar representing a hex string, can also be set to `null`"""
+scalar NullableAddressHexString
+
+input BlockByNumberInput {
+  block_number: Int!
+}
+
+type BlockConnection {
+  pageInfo: PageInfo!
+  edges: [BlockEdge!]!
+}
+
+type BlockEdge {
+  node: Block!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input BlocksInput {
+  sort_by: BlocksSortBy!
+  order_by: OrderBy!
+  min_block_number: Int
+  max_block_number: Int
+  block_statuses: [BlockStatus!]
+  min_timestamp: Int
+  max_timestamp: Int
+}
+
+enum BlocksSortBy {
+  timestamp
+}
+
+type Event {
+  id: String!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_hash: AddressHexString!
+  event_index: Int!
+  from_address: AddressHexString!
+  keys: [String!]!
+  data: [String!]!
+  timestamp: BigIntNumber!
+  key_name: String
+  data_decoded: [JSONObject!]
+  from_contract: Contract!
+}
+
+input EventInput {
+  id: String!
+}
+
+type EventConnection {
+  pageInfo: PageInfo!
+  edges: [EventEdge!]!
+}
+
+type EventEdge {
+  node: Event!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input EventsInput {
+  sort_by: EventsSortBy!
+  order_by: OrderBy!
+  block_hash: NullableAddressHexString
+  transaction_hash: AddressHexString
+  from_address: AddressHexString
+  key_names: [String!]
+  min_block_number: Int
+  max_block_number: Int
+  min_timestamp: Int
+  max_timestamp: Int
+}
+
+enum EventsSortBy {
+  timestamp
+}
+
+input StarknetClassInput {
+  class_hash: AddressHexString!
+}
+
+type StarknetClassConnection {
+  pageInfo: PageInfo!
+  edges: [StarknetClassEdge!]!
+}
+
+type StarknetClassEdge {
+  node: StarknetClass!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input StarknetClassesInput {
+  sort_by: StarknetClassesSortBy!
+  order_by: OrderBy!
+  min_declared_at_timestamp: Int
+  max_declared_at_timestamp: Int
+}
+
+enum StarknetClassesSortBy {
+  declared_at_timestamp
+}
+
+type Transaction {
+  transaction_hash: AddressHexString!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_index: Int!
+  transaction_status: TransactionStatus!
+  transaction_type: TransactionType!
+  version: Int
+  signature: [String!]
+  max_fee: BigIntStringScalar
+  actual_fee: BigIntStringScalar!
+  nonce: BigIntStringScalar
+  contract_address: AddressHexString
+  entry_point_selector: HexString
+  entry_point_type: TransactionEntryPointType
+  calldata: [String!]
+  class_hash: AddressHexString
+  compiled_class_hash: AddressHexString
+  sender_address: AddressHexString
+  constructor_calldata: [String!]
+  contract_address_salt: BigIntStringScalar
+  number_of_events: Int!
+  number_of_message_logs: Int!
+  number_of_calls: Int!
+  timestamp: BigIntNumber!
+  entry_point_selector_name: String
+  calldata_decoded: [JSONObject!]
+  execution_resources: ExecutionResources
+  erc20_transfer_events: [ERC20TransferEvent!]!
+  main_calls: [Call!]
+  contract: Contract
+  sender: Contract
+  deployed_contracts: [Contract!]
+}
+
+enum TransactionStatus {
+  RECEIVED
+  NOT_RECEIVED
+  PENDING
+  REJECTED
+  ACCEPTED_ON_L2
+  ACCEPTED_ON_L1
+}
+
+enum TransactionType {
+  INVOKE_FUNCTION
+  DECLARE
+  DEPLOY
+  L1_HANDLER
+  DEPLOY_ACCOUNT
+}
+
+enum TransactionEntryPointType {
+  EXTERNAL
+  L1_HANDLER
+}
+
+type ExecutionResources {
+  execution_resources_n_steps: BigIntStringScalar!
+  execution_resources_n_memory_holes: BigIntStringScalar!
+  execution_resources_builtin_instance_counter: [ExecutionResource!]!
+}
+
+type ExecutionResource {
+  name: String!
+  value: BigIntStringScalar!
+}
+
+type ERC20TransferEvent {
+  id: String!
+  transaction_hash: AddressHexString!
+  from_address: AddressHexString!
+  transfer_from_address: AddressHexString!
+  transfer_to_address: AddressHexString!
+  transfer_amount: BigIntStringScalar!
+  call_invocation_type: CallInvocationType!
+  main_call_id: String
+  timestamp: BigIntNumber!
+  transfer_from_address_contract: Contract
+  transfer_to_address_contract: Contract
+  erc20_metadata: ERC20Metadata
+  main_call: Call
+}
+
+enum CallInvocationType {
+  VALIDATE
+  FUNCTION
+  FEE_TRANSFER
+}
+
+type Call {
+  id: String!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_hash: AddressHexString!
+  call_index: Int!
+  call_depth: Int!
+  caller_address: AddressHexString!
+  contract_address: AddressHexString!
+  calldata: [String!]!
+  result: [String!]!
+  timestamp: BigIntNumber!
+  call_type: CallType
+  class_hash: AddressHexString
+  selector: HexString
+  entry_point_type: CallEntryPointType
+  selector_name: String
+  calldata_decoded: [JSONObject!]
+  result_decoded: [JSONObject!]
+  contract: Contract!
+}
+
+enum CallType {
+  CALL
+  DELEGATE
+}
+
+enum CallEntryPointType {
+  EXTERNAL
+  L1_HANDLER
+  CONSTRUCTOR
+}
+
+input TransactionInput {
+  transaction_hash: AddressHexString!
+}
+
+type TransactionConnection {
+  pageInfo: PageInfo!
+  edges: [TransactionEdge!]!
+}
+
+type TransactionEdge {
+  node: Transaction!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input TransactionsInput {
+  sort_by: TransactionsSortBy!
+  order_by: OrderBy!
+  block_hash: NullableAddressHexString
+  contract_address: AddressHexString
+  min_block_number: Int
+  max_block_number: Int
+  min_timestamp: Int
+  max_timestamp: Int
+  transaction_statuses: [TransactionStatus!]
+  transaction_types: [TransactionType!]
+}
+
+enum TransactionsSortBy {
+  timestamp
+}
+
+type Message {
+  message_hash: HexString!
+  message_direction: MessageDirection!
+  from_address: HexString!
+  to_address: HexString!
+  payload: [String!]!
+  selector: HexString
+  nonce: BigIntStringScalar
+  number_of_message_logs: Int!
+  number_of_message_logs_l1_to_l2__logged_on_l1: Int!
+  number_of_message_logs_l1_to_l2__executed_on_l2: Int!
+  number_of_message_logs_l1_to_l2__consumed_on_l1: Int!
+  number_of_message_logs_l1_to_l2__cancellation_started_on_l1: Int!
+  number_of_message_logs_l1_to_l2__cancelled_on_l1: Int!
+  number_of_message_logs_l2_to_l1__executed_on_l2: Int!
+  number_of_message_logs_l2_to_l1__logged_on_l1: Int!
+  number_of_message_logs_l2_to_l1__consumed_on_l1: Int!
+  from_contract_starknet: Contract
+  to_contract_starknet: Contract
+}
+
+enum MessageDirection {
+  L1_TO_L2
+  L2_TO_L1
+}
+
+input MessageInput {
+  message_hash: AddressHexString!
+}
+
+type SearchResult {
+  block: Block
+  transaction: Transaction
+  event: Event
+  message: Message
+  messageLogs: [MessageLog!]
+  contracts: [Contract!]
+  starknetClass: StarknetClass
+  erc20Contracts: [ERC20Contract!]
+  nftContracts: [NFTContract!]
+}
+
+type MessageLog {
+  id: String!
+  message_hash: HexString!
+  type: MessageLogType!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_hash: AddressHexString
+  message_index: Int
+  eth_block_hash: HexString
+  eth_block_number: Int
+  eth_transaction_hash: HexString
+  eth_transaction_index: Int
+  eth_log_index: Int
+  eth_address: HexString
+  timestamp: BigIntNumber!
+  message: Message!
+}
+
+enum MessageLogType {
+  L1_TO_L2__LOGGED_ON_L1
+  L1_TO_L2__EXECUTED_ON_L2
+  L1_TO_L2__CONSUMED_ON_L1
+  L1_TO_L2__CANCELLATION_STARTED_ON_L1
+  L1_TO_L2__CANCELLED_ON_L1
+  L2_TO_L1__EXECUTED_ON_L2
+  L2_TO_L1__LOGGED_ON_L1
+  L2_TO_L1__CONSUMED_ON_L1
+}
+
+type ERC20Contract {
+  contract_address: AddressHexString!
+  name: String
+  symbol: String
+  decimals: BigIntStringScalar
+  name_custom: String
+  icon_url: String
+  is_social_verified: Boolean!
+  contract: Contract
+  total_supply: BigIntStringScalar!
+  number_of_owners: BigIntStringScalar!
+}
+
+input SearchInput {
+  filter: String!
+}
+
+input ContractInput {
+  contract_address: AddressHexString!
+}
+
+type ContractConnection {
+  pageInfo: PageInfo!
+  edges: [ContractEdge!]!
+}
+
+type ContractEdge {
+  node: Contract!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input ContractsInput {
+  class_hash: AddressHexString
+  implementation_class_hash: AddressHexString
+  sort_by: ContractsSortBy!
+  order_by: OrderBy!
+  min_deployed_at_timestamp: Int
+  max_deployed_at_timestamp: Int
+}
+
+enum ContractsSortBy {
+  deployed_at_internal_time
+}
+
+type ContractProxyStarknetClassOutput {
+  proxy_address: AddressHexString!
+  proxy_address_entity: HashEntity!
+  starknet_class: StarknetClass!
+}
+
+enum HashEntity {
+  CONTRACT
+  CLASS
+}
+
+input ContractProxyStarknetClassInput {
+  contract_address: AddressHexString!
+}
+
+type StarknetOverviewStats {
+  total_count_blocks: BigIntStringScalar!
+  total_count_transactions: BigIntStringScalar!
+  total_count_events: BigIntStringScalar!
+  total_count_messages: BigIntStringScalar!
+  total_count_contracts: BigIntStringScalar!
+  total_count_classes: BigIntStringScalar!
+}
+
+type LatestBlockStats {
+  latest: BlockStats!
+  prev_latest: BlockStats!
+}
+
+type BlockStats {
+  transactions_per_second: Float!
+  average_transaction_actual_fee: BigIntStringScalar!
+  block_time: BigIntStringScalar!
+  block_number: Int!
+  block_timestamp: BigIntNumber!
+}
+
+type LatestSequencerStats {
+  latest: SequencerStats!
+}
+
+type SequencerStats {
+  timestamp: BigIntNumber!
+  number_of_transactions_in_backlog: Int!
+  oldest_transaction_age: BigIntStringScalar
+}
+
+type EstimateTransactionTime {
+  estimate_time: Int!
+}
+
+type EstimateBlockTime {
+  estimate_time: Int!
+}
+
+input EstimateBlockTimeInput {
+  block_number: Int!
+}
+
+type TransactionsPerSecondStats {
+  daily: [TransactionsPerSecond!]!
+}
+
+type TransactionsPerSecond {
+  date: DateStr!
+  transactions_per_second: Float!
+}
+
+"""GraphQL Scalar representing the DateStr type. (YYYY-MM-DD)"""
+scalar DateStr
+
+type MainCallsPerSecondStats {
+  daily: [MainCallsPerSecond!]!
+}
+
+type MainCallsPerSecond {
+  date: DateStr!
+  main_calls_per_second: Float!
+}
+
+type ExecutionResourcesNStepsPerSecondStats {
+  daily: [ExecutionResourcesNStepsPerSecond!]!
+}
+
+type ExecutionResourcesNStepsPerSecond {
+  date: DateStr!
+  execution_resources_n_steps_per_second: Float!
+}
+
+type ActiveAccountsStats {
+  daily: [ActiveAccounts!]!
+}
+
+type ActiveAccounts {
+  date: DateStr!
+  active_accounts_count: Int!
+}
+
+type TokenTransferStats {
+  daily: [TokenTransfer!]!
+}
+
+type TokenTransfer {
+  date: DateStr!
+  eth_total_volume_functional: BigIntStringScalar
+  eth_total_volume_functional_view: BigIntStringScalar
+  eth_total_volume_usd_value_functional: Float
+  eth_event_count_functional: Int
+  dai_total_volume_functional: BigIntStringScalar
+  dai_total_volume_functional_view: BigIntStringScalar
+  dai_total_volume_usd_value_functional: Float
+  dai_event_count_functional: Int
+  usdc_total_volume_functional: BigIntStringScalar
+  usdc_total_volume_functional_view: BigIntStringScalar
+  usdc_total_volume_usd_value_functional: Float
+  usdc_event_count_functional: Int
+  usdt_total_volume_functional: BigIntStringScalar
+  usdt_total_volume_functional_view: BigIntStringScalar
+  usdt_total_volume_usd_value_functional: Float
+  usdt_event_count_functional: Int
+  wbtc_total_volume_functional: BigIntStringScalar
+  wbtc_total_volume_functional_view: BigIntStringScalar
+  wbtc_total_volume_usd_value_functional: Float
+  wbtc_event_count_functional: Int
+  total_volume_usd_value_functional: Float!
+}
+
+type TVLStats {
+  daily: [TVL!]!
+}
+
+type TVL {
+  date: DateStr!
+  eth_total_supply: BigIntStringScalar
+  eth_total_supply_view: BigIntStringScalar
+  eth_usd_value: Float
+  dai_total_supply: BigIntStringScalar
+  dai_total_supply_view: BigIntStringScalar
+  dai_usd_value: Float
+  usdc_total_supply: BigIntStringScalar
+  usdc_total_supply_view: BigIntStringScalar
+  usdc_usd_value: Float
+  usdt_total_supply: BigIntStringScalar
+  usdt_total_supply_view: BigIntStringScalar
+  usdt_usd_value: Float
+  wbtc_total_supply: BigIntStringScalar
+  wbtc_total_supply_view: BigIntStringScalar
+  wbtc_usd_value: Float
+  total_usd_value: Float!
+}
+
+type ContractImplementationTypeCountsStats {
+  total_count_contract_implementation_type_unknown: BigIntStringScalar!
+  total_count_contract_implementation_type_account: BigIntStringScalar!
+  total_count_contract_implementation_type_erc20: BigIntStringScalar!
+  total_count_contract_implementation_type_erc721: BigIntStringScalar!
+  total_count_contract_implementation_type_erc1155: BigIntStringScalar!
+}
+
+type TransactionTypeCountsStats {
+  one_day: [TransactionTypeCounts!]!
+  three_days: [TransactionTypeCounts!]!
+  seven_days: [TransactionTypeCounts!]!
+}
+
+type TransactionTypeCounts {
+  transaction_type: TransactionType!
+  transaction_type_count: BigIntStringScalar!
+  total_count_percentage: Float!
+}
+
+type AccountRegenesisStats {
+  total_count_contract_implementation_type_account_argent_with_validate: BigIntStringScalar!
+  total_count_contract_implementation_type_account_braavos_with_validate: BigIntStringScalar!
+  total_count_contract_implementation_type_account_others_with_validate: BigIntStringScalar!
+  total_count_contract_implementation_type_account_argent_without_validate: BigIntStringScalar!
+  total_count_contract_implementation_type_account_braavos_without_validate: BigIntStringScalar!
+  total_count_contract_implementation_type_account_others_without_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_argent_with_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_braavos_with_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_others_with_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_argent_without_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_braavos_without_validate: BigIntStringScalar!
+  total_usd_value_implementation_type_account_others_without_validate: BigIntStringScalar!
+}
+
+type ContractRegenesisStats {
+  total_count_contract_sierra: BigIntStringScalar!
+  total_usd_value_contract_sierra: BigIntStringScalar!
+  total_count_contract_casm: BigIntStringScalar!
+  total_usd_value_contract_casm: BigIntStringScalar!
+}
+
+type AccountCallSelectorCountsStats {
+  one_day: [AccountCallSelectorCounts!]!
+  three_days: [AccountCallSelectorCounts!]!
+  seven_days: [AccountCallSelectorCounts!]!
+}
+
+type AccountCallSelectorCounts {
+  account_call_selector: HexString!
+  account_call_selector_name: String
+  account_call_selector_count: BigIntStringScalar!
+  total_count_percentage: Float!
+}
+
+type EventKeyCountsStats {
+  one_day: [EventKeyCounts!]!
+  three_days: [EventKeyCounts!]!
+  seven_days: [EventKeyCounts!]!
+}
+
+type EventKeyCounts {
+  event_key: HexString!
+  event_key_name: String
+  event_key_count: BigIntStringScalar!
+  total_count_percentage: Float!
+}
+
+input CallInput {
+  id: String!
+}
+
+type CallConnection {
+  pageInfo: PageInfo!
+  edges: [CallEdge!]!
+}
+
+type CallEdge {
+  node: Call!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input CallsInput {
+  sort_by: CallsSortBy!
+  order_by: OrderBy!
+  block_hash: NullableAddressHexString
+  transaction_hash: AddressHexString
+  contract_address: AddressHexString
+  is_account_call: Boolean
+  selectors: [HexString!]
+  min_block_number: Int
+  max_block_number: Int
+  min_timestamp: Int
+  max_timestamp: Int
+}
+
+enum CallsSortBy {
+  timestamp
+}
+
+input MessageLogInput {
+  id: String!
+}
+
+type MessageLogConnection {
+  pageInfo: PageInfo!
+  edges: [MessageLogEdge!]!
+}
+
+type MessageLogEdge {
+  node: MessageLog!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input MessageLogsInput {
+  sort_by: MessageLogsSortBy!
+  order_by: OrderBy!
+  message_hash: AddressHexString
+  block_hash: NullableAddressHexString
+  transaction_hash: AddressHexString
+  eth_transaction_hash: HexString
+  message_contract_address: HexString
+  message_directions: [MessageDirection!]
+  message_log_types: [MessageLogType!]
+  min_timestamp: Int
+  max_timestamp: Int
+}
+
+enum MessageLogsSortBy {
+  timestamp
+}
+
+type MessageLogERC20Transfer {
+  message_hash: HexString!
+  message_direction: MessageDirection!
+  message_log_id: String!
+  message_log_type: MessageLogType!
+  to_address: HexString!
+  amount: BigIntStringScalar!
+  erc20_metadata: ERC20Metadata!
+}
+
+input MessageLogERC20TransfersInput {
+  transaction_hash: AddressHexString
+  eth_transaction_hash: HexString
+}
+
+input ERC20BalancesByOwnerAddressInput {
+  owner_address: AddressHexString
+}
+
+type ERC20BalanceConnection {
+  pageInfo: PageInfo!
+  edges: [ERC20BalanceEdge!]!
+}
+
+type ERC20BalanceEdge {
+  node: ERC20Balance!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input ERC20BalancesInput {
+  contract_address: AddressHexString!
+}
+
+type ERC20Summary {
+  number_of_owners: BigIntStringScalar!
+  total_supply: BigIntStringScalar!
+  total_volume_24_hours: BigIntStringScalar!
+  total_volume_change_basis_points_24_hours: BigIntStringScalar!
+  erc20_metadata: ERC20Metadata!
+}
+
+input ERC20ContractInput {
+  contract_address: AddressHexString!
+}
+
+type ERC20TransferEventConnection {
+  pageInfo: PageInfo!
+  edges: [ERC20TransferEventEdge!]!
+}
+
+type ERC20TransferEventEdge {
+  node: ERC20TransferEvent!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input ERC20TransferEventsInput {
+  sort_by: ERC20TransferEventsSortBy!
+  order_by: OrderBy!
+  from_address: AddressHexString
+  transfer_from_address: AddressHexString
+  transfer_to_address: AddressHexString
+  call_invocation_type: CallInvocationType
+}
+
+enum ERC20TransferEventsSortBy {
+  timestamp
+}
+
+type ReplacedClassConnection {
+  pageInfo: PageInfo!
+  edges: [ReplacedClassEdge!]!
+}
+
+type ReplacedClassEdge {
+  node: ReplacedClass!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+type ReplacedClass {
+  contract_address: AddressHexString!
+  class_hash_from: AddressHexString!
+  class_hash_to: AddressHexString!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_hash: AddressHexString!
+  timestamp: BigIntNumber!
+  contract: Contract
+  class_from: StarknetClass
+  class_to: StarknetClass
+}
+
+input ReplacedClassesInput {
+  contract_address: AddressHexString!
+  sort_by: ReplacedClassesSortBy!
+  order_by: OrderBy!
+}
+
+enum ReplacedClassesSortBy {
+  timestamp
+}
+
+type KakarotTransaction {
+  id: String!
+  block_hash: AddressHexString
+  block_number: Int
+  transaction_hash: AddressHexString!
+  kakarot_to_address: HexString!
+  kakarot_value: BigIntStringScalar!
+  kakarot_gas_limit: BigIntStringScalar!
+  kakarot_gas_used: BigIntStringScalar!
+  kakarot_calldata: [String!]!
+  kakarot_return_data: [String!]!
+  timestamp: BigIntNumber!
+  transaction_status: TransactionStatus!
+  kakarot_from_address: AddressHexString!
+}
+
+input KakarotTransactionInput {
+  transaction_hash: AddressHexString!
+}
+
+type KakarotTransactionConnection {
+  pageInfo: PageInfo!
+  edges: [KakarotTransactionEdge!]!
+}
+
+type KakarotTransactionEdge {
+  node: KakarotTransaction!
+
+  """Used in `before` and `after` args"""
+  cursor: String!
+}
+
+input KakarotTransactionsInput {
+  sort_by: CallsSortBy!
+  order_by: OrderBy!
+  min_block_number: Int
+  max_block_number: Int
+  min_timestamp: Int
+  max_timestamp: Int
+}

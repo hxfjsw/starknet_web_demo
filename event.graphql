@@ -1,0 +1,31 @@
+query events($first: Float, $last: Float, $before: String, $after: String, $input: EventsInput!) {
+    events(
+        first: $first
+        last: $last
+        before: $before
+        after: $after
+        input: $input
+    ) {
+        edges {
+            cursor
+            node {
+                id
+                block_hash
+                transaction_hash
+                event_index
+                from_address
+                keys
+                data
+                timestamp
+                key_name
+                __typename
+            }
+            __typename
+        }
+        pageInfo {
+            hasNextPage
+            __typename
+        }
+        __typename
+    }
+}
