@@ -18,6 +18,7 @@ query events($first: Float, $last: Float, $before: String, $after: String, $inpu
                 data
                 timestamp
                 key_name
+                data_decoded
                 __typename
             }
             __typename

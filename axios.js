@@ -19,12 +19,17 @@ async function  test() {
             first: 100,
         },
         query:
-            'query events($first: Float, $last: Float, $before: String, $after: String, $input: EventsInput!) {\n  events(\n    first: $first\n    last: $last\n    before: $before\n    after: $after\n    input: $input\n  ) {\n    edges {\n      cursor\n      node {\n        id\n        block_hash\n        transaction_hash\n        event_index\n        from_address\n        keys\n        data\n        timestamp\n        key_name\n        __typename\n      }\n      __typename\n    }\n    pageInfo {\n      hasNextPage\n      __typename\n    }\n    __typename\n  }\n}',
+            'query events($first: Float, $last: Float, $before: String, $after: String, $input: EventsInput!) {\n  events(\n    first: $first\n    last: $last\n    before: $before\n    after: $after\n    input: $input\n  ) {\n    edges {\n      cursor\n      node {\n        id\n        block_hash\n        transaction_hash\n        event_index\n        from_address\n        keys\n        data\n        timestamp\n        key_name\n      data_decoded\n        __typename\n      }\n      __typename\n    }\n    pageInfo {\n      hasNextPage\n      __typename\n    }\n    __typename\n  }\n}',
     }
 
     const axiosClient = axios.create();
     const resp = await axiosClient.post('https://api-testnet.starkscan.co/graphql', postData, { headers })
-    console.log(resp.data?.data?.events.edges);
+    const events = resp.data?.data?.events.edges;
+    // console.log(events);
+    for (const event of events) {
+        const data = event.node.data_decoded;
+        console.log(data);
+    }
 }
 
 test();
